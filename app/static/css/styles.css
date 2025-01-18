@@ -1,0 +1,174 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.project-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+.buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+#appointment, #register, #login, #register-button,
+#patient-button, #doctor-button, #logoutButton,
+#cancelButton, #submit-request {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+#register-button, #login {
+    background-color: green;
+}
+
+#register, #patient-button, #doctor-button, #logoutButton, #cancelButton {
+    background-color: #f95454;
+}
+
+#appointment, #submit-request {
+    background-color: #0d92f4;
+}
+
+.description, .login-box, .registration-form, .register-boxes,
+.bookappointment, .doctor-dash, .patient-dash, .admin-dash,
+.error {
+    background-color: #77cdff;
+    padding: 30px 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 15% 30% 30%;
+}
+
+.login-box, .registration-form, .register-boxes {
+
+    margin-bottom: 10px;
+    color: #000000;
+
+}
+
+@media (max-width: 600px) {
+    .login-box, .registration-form, .register-boxes {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="date"] {
+    width: calc(100%);
+    padding: 8px;
+    border: 1px solid #0d92f4;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#doctors-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#doctors-list li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#doctors-list li:hover {
+    background-color: #0d92f4;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+table td.actions {
+    display: flex;
+    gap: 10px;
+}
+
+table td.actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+table td.actions button.approve {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+
+}
+
+table td.actions button.delete {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #dc3545;
+    color: white;
+}

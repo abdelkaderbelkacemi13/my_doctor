@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient dashboard</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/logout.js"></script>
+</head>
+<body>
+<div class="project-name">
+    <h1>Tabibi</h1>
+</div>
+
+<div class="buttons">
+    <button type="button" id="logoutButton">Logout</button>
+</div>
+<div class="bookappointment">
+    <h1>Patient dashboard</h1>
+    <h3>Book an appointments</h3>
+
+    <div class="search-container">
+        <label for="speciality-search">Enter the doctor speciality</label>
+        <input type="text" id="speciality-search" placeholder="Search for doctors">
+        <ul id="doctors-list"></ul>
+    </div>
+    <div class="date-container">
+        <label for="appointment-date">Select Date</label>
+        <input type="date" id="appointment-date" name="appointment-date">
+    </div>
+
+    <button id="submit-request">Submit the request</button>
+
+</div>
+<script src="../static/js/patient_dashboard.js"></script>
+<script src="../static/js/logout.js"></script>
+</body>
+</html>
