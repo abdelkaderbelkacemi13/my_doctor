@@ -29,13 +29,13 @@ body {
 
 #appointment, #register, #login, #register-button,
 #patient-button, #doctor-button, #logoutButton,
-#cancelButton, #submit-request {
+#cancelButton, #submit-request, #login-button {
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: 10px;
 }
 
-#register-button, #login {
+#register-button, #login, #login-button {
     background-color: green;
 }
 
