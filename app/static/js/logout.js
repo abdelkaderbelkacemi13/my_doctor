@@ -3,7 +3,7 @@ document.getElementById("logoutButton").addEventListener("click", logout)
 function logout(){
     // check everything please when you test.
     // the endpoint will be updated later to the exact endpoint.
-    fetch("endpoint",{
+    fetch("/logout",{
         method : 'GET',
         credentials : 'same-origin',
     })
