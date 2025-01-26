@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Flask Application """
-from app.api.utils import app_views
+from app.api.v1.utils import app_views
 import binascii
-from app.api.web import web
+from app.api.v1.web import web
 from dotenv import load_dotenv
 from datetime import timedelta
 from app.models import storage
@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(web)
 app.register_blueprint(app_views)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 app.secret_key = binascii.hexlify(os.urandom(24)).decode()
 
 toolbar = DebugToolbarExtension(app)
@@ -51,7 +51,7 @@ def not_found(error):
       404:
         description: a resource was not found
     """
-    print("Routes available:", app.url_map)
+    # print("Routes available:", app.url_map)
 
     return render_template('error.html')
 
