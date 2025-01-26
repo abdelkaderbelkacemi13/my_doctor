@@ -14,22 +14,57 @@
 
 <div class="buttons">
     <button type="button" id="logoutButton">Logout</button>
+    <button type="button" id="appointmentsDash" onclick="window.location.href='appointments'">Appointments</button>
 </div>
 <div class="bookappointment">
     <h1>Patient dashboard</h1>
     <h3>Book an appointments</h3>
     <form id="bookappointmentForm" method="post">
-    <div class="search-container">
-        <label for="speciality-search">Enter the doctor speciality</label>
-        <input type="text" id="speciality-search" placeholder="Search for doctors">
-        <ul id="doctors-list"></ul>
-    </div>
-    <div class="date-container">
-        <label for="appointment-date">Select Date</label>
-        <input type="date" id="appointment-date" name="appointment-date">
-    </div>
+        <div class="input-group">
+            <label for="speciality-select">Select Doctor's Speciality</label>
+            <select id="speciality-select">
+                <option value="">Select Speciality</option>
+                <option value="Allergy and Immunology">Allergy and Immunology</option>
+                <option value="Anesthesiology">Anesthesiology</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Endocrinology">Endocrinology</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="General Surgery">General Surgery</option>
+                <option value="Hematology">Hematology</option>
+                <option value="Infectious Disease">Infectious Disease</option>
+                <option value="Internal Medicine">Internal Medicine</option>
+                <option value="Medical Genetics">Medical Genetics</option>
+                <option value="Nephrology">Nephrology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+                <option value="Oncology">Oncology</option>
+                <option value="Ophthalmology">Ophthalmology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Otolaryngology">Otolaryngology (ENT)</option>
+                <option value="Pathology">Pathology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Physical Medicine and Rehabilitation">Physical Medicine and Rehabilitation</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Pulmonology">Pulmonology</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Rheumatology">Rheumatology</option>
+                <option value="Urology">Urology</option>
+            </select>
+            <ul id="doctors-list"></ul>
+        </div>
+        <div class="date-container">
+            <label for="appointment-date">Select Date</label>
+            <input type="date" id="appointment-date" name="appointment-date">
+        </div>
     </form>
     <button id="submit-request">Submit the request</button>
+    {% if err %}
+        <span id="err" style="color: red">{{err}}</span>
+    {% endif %}
+    {% if msg %}
+        <span id="msg" style="color: red">{{msg}}</span>
+    {% endif %}
 
 </div>
 <script src="../static/js/patient_dashboard.js"></script>

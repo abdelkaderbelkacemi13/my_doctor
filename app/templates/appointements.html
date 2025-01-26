@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments </title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+<div class="project-name">
+    <h1>Tabibi</h1>
+</div>
+<div class="buttons">
+    <button type="button" id="logoutButton">Logout</button>
+    <button type="button" id="appointmentsDash" onclick="window.location.href='dashboard'">dashboard</button>
+</div>
+<div class="Appointments-dash">
+    <h2>appointments-list</h2>
+
+    <section class="appointments">
+        <h3>Appointments</h3>
+        <div class="table-container">
+            <table id="appointments-table">
+                <thead>
+                <tr>
+                    <th>Dr.First Name</th>
+                    <th>Dr.Last Name</th>
+                    <th>Specialisation</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% if appointments %}
+                        {% for item in appointments %}
+                            <tr>
+                                <td>{{ item.first_name }}</td>
+                                <td>{{ item.last_name }}</td>
+                                <td>{{ item.specalization }}</td>
+                                <td>{{ item.date}}</td>
+                                <td class="status-cell" data-appointment-id="{{ item.id }}"data-last-status="{{ item.approved }}>{{ item.approved}}"</td> {{ item.approved }}</td>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+</body>
+<script src="../static/js/logout.js"></script>
+</html>

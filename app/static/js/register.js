@@ -1,7 +1,6 @@
 let inputPwd = '';
-let confPwd = '';
 
-// Get DOM elements
+
 const cancelBtn = document.getElementById("cancelButton");
 const pwd = document.getElementById('password');
 const confirmPwd = document.getElementById('confirmPassword');
@@ -14,7 +13,7 @@ const errorMsg = document.getElementById('error');
 const patientForm = document.getElementById('patient-registration');
 const doctorForm = document.getElementById('doctor-registration');
 
-// Manage the cancel button to reset the form
+// Manage the cancel button
 if (cancelBtn) {
     cancelBtn.addEventListener('click', function () {
         if (patientForm) {
@@ -55,7 +54,7 @@ if (pwd) {
             pwdCheck.style.display = 'block';
         }
 
-        // Regular expressions for password validation
+        // Regular expressions
         const lenpt = /^.{8,16}$/; // Length between 8 and 16
         const nums = /(?=.*\d)/; // At least one number
         const cases = /(?=.*[A-Z])/; // At least one uppercase letter
@@ -68,20 +67,59 @@ if (pwd) {
     });
 }
 
-// Confirm password validation
-if (confirmPwd) {
-    confirmPwd.addEventListener('input', (ev) => {
-        confPwd = ev.target.value;
-        if (confPwd !== inputPwd) {
-            confirmPwd.style.border = 'solid 1px red';
-            errorMsg.textContent = "Passwords do not match.";
+
+//handle form submission
+function FormSubmit(event, endpoint) {
+    event.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const confpwd = document.getElementById("confirmPassword").value;
+
+    // Check if the password and the confirm password  matchs
+    if (password !== confpwd) {
+        errorMsg.textContent = "Passwords do not match.";
+        return;
+    }
+
+    // Collect the data
+    let usersdata = new FormData(event.target);
+
+    fetch(endpoint, {
+        method: 'POST',
+        body: usersdata
+    })
+    .then(response => {
+        if (response.ok) {
+            // if the registration was success
+            return response.json().then(data => {
+                alert(data.message || "Registration successful!");
+                window.location.href = "/login";
+            });
+            // if the email is already  used
+        } else if (response.status === 409) {
+            return response.json().then(data => {
+                errorMsg.textContent = data.error || "Email already registered.";
+            });
         } else {
-            confirmPwd.style.border = 'transparent';
-            errorMsg.textContent = '';
+            // if the registrasion failed
+            return response.json().then(data => {
+                errorMsg.textContent = data.error || "Registration failed.";
+            }).catch(() => {
+                errorMsg.textContent = "Registration failed.";
+            });
         }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        errorMsg.textContent = "Registration failed. Please try again.";
     });
 }
-
+[
+    { form: doctorForm, endpoint: '/registerDoctor' },
+    { form: patientForm, endpoint: '/registerPatient' },
+].forEach(({ form, endpoint }) => {
+    form?.addEventListener('submit', (event) => FormSubmit(event, endpoint));
+});
 
 
 
