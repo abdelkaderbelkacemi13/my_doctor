@@ -1,5 +1,5 @@
 # My_Doctor(tabibi)
-"A  simple web app to make booking appointment easy"
+"A  simple web app to make booking appointment easy for patients "
 
 ## Table of Contents
 - [Installation](#installation)
@@ -12,14 +12,14 @@
 1. Clone the repo:
     `git clone https://github.com/abdelkaderbelkacemi13/my_doctor.git`
     then
-    `cd My_doctor`
+    `cd my_doctor`
 2. Since the project requires a databse you must have MySQl installed in you system,
-   if not follow this[guide](https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/)
+   if not follow this [guide](https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/)
    then run:
      `cat setup_mysql_dev.sql | mysql -hlocalhost -uroot -p`
    put your mysql password at the prompt.
 3. Start a virtual env. Download it using:
-     `python -m venv venv`
+     `python3 -m venv venv`
 4. Activate the virtual env:
    `source venv/bin/activate`
    Once you have activated it, your bash prompt should have a preceeding (venv) at the beginning.
