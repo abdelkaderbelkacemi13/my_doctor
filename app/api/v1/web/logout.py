@@ -1,13 +1,8 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
-from app.models import patient, storage
 from app.api.v1.web import web
 from os import environ
-from flask import Flask, render_template, request, redirect, session, url_for, flash, jsonify, abort
-import requests
-import uuid
-from werkzeug.security import check_password_hash
-import json
+from flask import Flask, redirect, session, url_for
 
 app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
@@ -20,10 +15,12 @@ def close_db(error):
     storage.close()
 
 
-@web.route('/registeration', methods=['GET', 'POST'], strict_slashes=False)
-def registeration():
-    """show registration page"""
-    return render_template('register.html')
+@web.route('/logout', methods=['GET'], strict_slashes=False)
+def logout():
+    """logout user"""
+    session.clear()  # This will remove all session data
+    return redirect(url_for('web.login'))
+
 
 if __name__ == "__main__":
     """ Main Function """
