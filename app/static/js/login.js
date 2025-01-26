@@ -6,7 +6,7 @@ document.getElementById("login-button").addEventListener("submit",
         /*austin please change the login to the proper endpoint */
         let user_data = new FormData(document.getElementById("loginForm"));
 
-        fetch("endpoint", {
+        fetch("login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
