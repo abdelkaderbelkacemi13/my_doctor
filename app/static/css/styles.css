@@ -29,13 +29,13 @@ body {
 
 #appointment, #register, #login, #register-button,
 #patient-button, #doctor-button, #logoutButton,
-#cancelButton, #submit-request, #login-button {
+#cancelButton, #submit-request, #login-button, #appointmentsDash {
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: 10px;
 }
 
-#register-button, #login, #login-button {
+#register-button, #login, #login-button, #appointmentsDash {
     background-color: green;
 }
 
@@ -43,13 +43,13 @@ body {
     background-color: #f95454;
 }
 
-#appointment, #submit-request {
+#submit-request {
     background-color: #0d92f4;
 }
 
 .description, .login-box, .registration-form, .register-boxes,
-.bookappointment, .doctor-dash, .patient-dash, .admin-dash,
-.error {
+.bookappointment, .doctor-dash, .patient-dash,
+.error, .Appointments-dash {
     background-color: #77cdff;
     padding: 30px 10px;
     border-radius: 10px;
@@ -58,10 +58,8 @@ body {
 }
 
 .login-box, .registration-form, .register-boxes {
-
     margin-bottom: 10px;
     color: #000000;
-
 }
 
 @media (max-width: 600px) {
@@ -82,6 +80,7 @@ label {
     color: #000000;
 }
 
+/* Existing input styles */
 input[type="email"],
 input[type="password"],
 input[type="text"],
@@ -95,6 +94,31 @@ input[type="date"] {
     box-sizing: border-box;
 }
 
+
+.input-group select {
+    width: 100%;
+
+    border: 1px solid #0d92f4;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); /* Example custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding: 8px 30px 8px 8px;
+}
+
+
+.input-group select:hover {
+    border-color: #007bff;
+}
+
+
+
 #doctors-list {
     list-style-type: none;
     padding: 0;
@@ -106,7 +130,7 @@ input[type="date"] {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 10px;
     display: block;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -114,6 +138,11 @@ input[type="date"] {
 
 #doctors-list li:hover {
     background-color: #0d92f4;
+}
+#doctors-list li.selected {
+    background-color: #0d92f4; /* Or your preferred highlight color */
+    color: white; /* Optional: Change text color for better contrast */
+    border: 2px solid #054e88; /* Optional: Add a border to emphasize selection */
 }
 
 .table-container {
@@ -142,15 +171,13 @@ table tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-
 table td.actions {
     display: flex;
     gap: 10px;
 }
 
 table td.actions button {
-    padding: 5px 10px;
-    border: none;
+    padding: 5px 20px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
@@ -160,15 +187,13 @@ table td.actions button.approve {
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: 10px;
-    background-color: #28a745;
-    color: white;
-
+    background-color: green;
+   
 }
 
-table td.actions button.delete {
+table td.actions button.decline {
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: 10px;
-    background-color: #dc3545;
-    color: white;
+    background-color: #f95454;
 }
